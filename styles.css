@@ -1,0 +1,955 @@
+/* ======================= */
+/* FONT FACES */
+/* ======================= */
+
+@font-face {
+  font-family: "Aldine 721";
+  src: url("Aldine 721 Regular.woff") format("woff");
+  font-weight: 400;   /* normal weight */
+  font-style: normal; /* normal style */
+  font-display: swap; /* improves loading performance */
+}
+
+@font-face {
+  font-family: "American Typewriter";
+  src: url("AmericanTypewriter.woff") format("woff");
+  font-weight: 400;   /* normal weight */
+  font-style: normal; /* normal style */
+  font-display: swap; /* improves loading performance */
+}
+
+@font-face {
+  font-family: "Clarendon";
+  src: url("Fonts/30d15ba189e592bf64a8773f3cc12b64.woff2") format("woff2");
+  font-weight: 700;   /* normal weight */
+  font-style: normal; /* normal style */
+  font-display: swap; /* improves loading performance */
+}
+
+/* ======================= */
+/* GLOBAL RESET */
+/* ======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(235, 230, 230);
+}
+
+
+/* ======================= */
+/* CSS VARIABLES & ROOT */
+/* ======================= */
+:root {
+    --baseline: 9px;
+    --leading: calc(var(--baseline) * 3); /* ~22.5px, good for monospace */
+}
+
+
+/* ======================= */
+/* BODY & HTML */
+/* ======================= */
+html {
+  scroll-behavior: smooth; /* makes anchor jumps animate smoothly */
+}
+
+body {
+  margin-top: 80px;
+    width: 95%;
+    height:100vh;
+    font-family: "Aldine 721", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: var(--leading);
+    background:#b7b7b7;
+    color: #111;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    hanging-punctuation: first last;
+    margin-inline: 0px;
+}
+
+.window-anchor {
+    scroll-margin-top: 50vh;
+}
+
+
+
+/* ======================= */
+/* STORY SECTION */
+/* ======================= */
+.story {
+    margin-top: 0px;
+    margin-left: 15px;
+    max-width: 500px;
+    padding: calc(var(--baseline) * 4) calc(var(--baseline) * 3);
+    column-count: 1;  
+    column-gap: 50px;
+    column-fill: balance;
+    line-height: var(--leading);
+    letter-spacing: -0.005em;
+    scroll-snap-align: start;
+    min-height: 30vh;
+    hanging-punctuation: first last;
+    
+
+
+}
+
+.story.two-column {
+    column-count: 2;
+    max-width: 1000px;
+    background-color: transparent;
+    
+}
+
+.story4 {
+    background-color: #96bc59;
+
+}
+
+.story p {
+    text-indent: 0; /* first line */
+    background-color: transparent;
+    margin-left:1px;
+}
+
+.indent {
+    text-indent: 2em;
+}
+
+.sentence-indent {
+    display: block;
+    text-indent: 2em;
+    padding-left: 0em;
+}
+
+.paragraph-indent {
+    display: block;
+    text-indent: 8em;
+    padding-left: 0em;
+}
+
+.dropcap {
+    float: left;
+    font-family: "Clarendon", serif;
+    font-size: calc(var(--leading) * 4.5);
+    font-weight:700;
+    line-height: calc(var(--leading) * 4);
+    padding-right: 0.1em;
+    padding-top: 0;
+    margin-top: 0;
+    margin-left: calc(var(--baseline) * -0.5);
+    font-weight: 700;
+    color: #000000;
+}
+
+.story h2 {
+    margin-left: 63px;
+    width:300px;
+    column-span: all;
+    font-family: "Aldine 721", serif;
+    font-size: 1.1rem;
+    margin-bottom: calc(var(--baseline) * 2);
+    letter-spacing: -0.003em;
+    hanging-punctuation: first last;
+    text-align: left;
+    background-color: transparent;
+
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.08em;
+    transition: transform 0.2s ease;
+    transform-origin: left center;
+
+    z-index: 99999;
+}
+
+/*.story h2:hover {
+    transform: scale(16.5);
+}*/
+
+.story p {
+    margin-bottom: calc(var(--baseline) * 0.5);
+    text-align: justify;
+    hyphens: auto;
+    letter-spacing: -0.005em;
+    hanging-punctuation: first last;
+    
+}
+
+/* ======================= */
+/* TEXT COLUMN */
+/* ======================= */
+.text-column {
+    position: absolute;
+    left: 510px;
+    top: 125px;
+    width: 330px;
+    padding: calc(var(--baseline) * 2) calc(var(--baseline) *3);
+    column-count: 1;  
+    column-gap: 50px;
+    column-fill: balance;
+    column-rule: 1px solid rgba(0, 0, 0, 0);
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    min-height: 30vh;
+    hanging-punctuation: first last;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+    z-index: 10;
+}
+
+.text-column p {
+    text-indent: 0;
+    margin-bottom: calc(var(--baseline) * 2);
+    text-align: justify;
+    hyphens: auto;
+    letter-spacing: -0.005em;
+    hanging-punctuation: first last;
+}
+
+.text-column h2 {
+    column-span: all;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    margin-bottom: calc(var(--baseline) * 3);
+    letter-spacing: 1.2em;
+    hanging-punctuation: first last;
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.08em;
+}
+
+.text-column2 {
+    position: absolute;
+    left: 650px;
+    top: 500px;
+    width: 700px;
+    height:500px;
+    padding: calc(var(--baseline) * 2) calc(var(--baseline) *3);
+    column-count: 1;  
+    column-gap: 50px;
+    column-fill: balance;
+    column-rule: 1px solid rgba(0, 0, 0, 0);
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    min-height: 30vh;
+    hanging-punctuation: first last;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: #111;
+    background: #ffffff00;
+    z-index: 10;
+}
+
+.text-column2 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-column2-duplicate {
+    position: absolute;
+    left: 650px;
+    top: 3270px;
+    width: 700px;
+    padding: calc(var(--baseline) * 2) calc(var(--baseline) *3);
+    column-count: 1;  
+    column-gap: 50px;
+    column-fill: balance;
+    column-rule: 1px solid rgba(0, 0, 0, 0);
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    min-height: 30vh;
+    hanging-punctuation: first last;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color:#111;
+    background: #96bc5900;
+    z-index: 10;
+    scroll-margin-top: calc(50vh - 15vh);
+}
+
+.text-column3 {
+    position: absolute;
+    left: 1002px;
+    top: 1194.5px;
+    width: 330px;
+    padding: calc(var(--baseline) * 2) calc(var(--baseline) *3);
+    column-count: 1;  
+    column-gap: 50px;
+    column-fill: balance;
+    column-rule: 1px solid rgba(0, 0, 0, 0);
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    min-height: 30vh;
+    hanging-punctuation: first last;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+
+
+    z-index: 10;
+}
+
+.text-column4 {
+    position: absolute;
+    left: 580px;
+    top: 6034px;
+    width: 880px;
+    padding: calc(var(--baseline) * 2) calc(var(--baseline) *3);
+    column-count: 1;  
+    column-gap: 50px;
+    column-fill: balance;
+    column-rule: 1px solid rgba(0, 0, 0, 0);
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    min-height: 30vh;
+    hanging-punctuation: first last;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+    z-index: 10;
+}
+
+.text-column5-1 {
+    position: absolute;
+    left: 824.5px;
+    top: 2915px;
+    width: 200px;
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+
+    writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: left;
+  
+    z-index: 9999;
+}   
+
+.text-column5-2 {
+    position: absolute;
+    left: 824.5px;
+    top: 4015px;
+    width: 200px;
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+
+    writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: left;
+  
+    z-index: 9999;
+}   
+
+.text-column5-3 {
+    position: absolute;
+    left: 1200px;
+    top: 30px;
+    width: 200px;
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+
+  
+    z-index: 9999;
+}   
+
+.text-column5-4 {
+    position: absolute;
+    left: 641px;
+    top: 95px;
+    width: 200px;
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+
+    writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: left;
+  
+    z-index: 9999;
+}   
+
+.grey {
+    color: #b7b7b7;
+}
+.text-column5-duplicate {
+    position: absolute;
+    left: 1160px;
+    top: 5250px;
+    width: 200px;
+     transform: translateY(-25%);
+  padding: 10px 15px;
+    line-height: 1.2rem;
+    letter-spacing: -0.005em;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111;
+    background: #ffffff00;
+    z-index: 9999;
+
+    scroll-margin-top: 75vh;
+}   
+
+
+
+  
+.vertical-text-box2 {
+  width: 12px;
+  position: absolute;
+  top: 2350px;
+  left:1029px;
+  height: 230px;
+  transform: translateY(-25%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: justify;
+  padding: 10px 15px;
+  background: #96bc5900;
+  color: #111;
+  font-family: "American Typewriter", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+
+  
+
+  z-index: 9999;
+}
+
+
+.vertical-text-box2-duplicate {
+  width: 12px;
+  position: absolute;
+  top: 4525px;
+  left:1029px ;
+  height: 235px;
+  transform: translateY(-25%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: justify;
+  padding: 10px 15px;
+  text-align: left;
+  padding: 10px 15px;
+  background: #ffffff00;
+  color: #111;
+  font-family: "American Typewriter", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  scroll-margin-top: 50vh;
+
+  z-index: 9999;
+}
+
+.vertical-text-box2-duplicate2 {
+  width: 300px;
+  position: absolute;
+  top: 4661px;
+  left:1029px ;
+  height: 230px;
+  
+  padding: 10px 15px;
+  text-align: left;
+  padding: 10px 15px;
+  background: #ffffff00;
+  color: #111;
+  font-family: "American Typewriter", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  
+
+
+  scroll-margin-top: 80vh;
+
+  z-index: 9999;
+}
+
+.side-image {
+    position: absolute;
+    top: 100px;              /* adjust as needed */
+    left: 900px;            /* adjust as needed */
+    
+    width: 20%;         /* keep original width */
+    height: 45%;        /* keep original height */
+
+    pointer-events: none; /* optional: image won’t interfere with text selection */
+
+    /* ADD: hide by default and animate visibility */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px) scaleX(1);
+    transition: opacity 2.5s ease, transform 2.5s ease, visibility 2.5s;
+}
+
+.hide-toggle:checked ~ .side-image {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scaleX(1);
+  pointer-events: auto;
+  z-index: 1001;
+}
+
+/* ======================= */
+/* WIN BUTTON/LINK */
+/* ======================= */
+.win {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  
+  font-size: 1rem;
+
+  
+}
+
+.win:hover {
+  font-family: "American Typewriter", serif;
+  transform: scale(0.9);
+  color: rgb(0, 0, 0);
+}
+
+.win[href] {
+  cursor: pointer;
+}
+
+.win-vertical:hover {
+  font-family: "American Typewriter", serif;
+  color: rgb(0, 0, 0); /* red for visibility */
+  transform: scale(1.01);
+  
+}
+
+
+
+/* ======================= */
+/* SITE DESCRIPTION SECTIONS */
+/* ======================= */
+.hide-toggle {
+  display: none;
+}
+
+
+.site-description {
+    position:absolute;
+    top: 45px;
+    left: 1100px;
+    width: 50px;
+    height:max-content;
+    margin-left: 70px;
+    margin-right: 750px;
+    padding: 100px 0;
+    background: #ffffff00;
+    color: #000000;
+    font-family: "Clarendon", serif;
+    font-size: 16rem;
+    font-weight: 600;
+    line-height: 1;
+    z-index: 10000;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+     writing-mode: vertical-rl;
+   text-orientation: mixed;
+   text-align: centered;
+}
+
+.site-description .horizontal {
+    top: 0px;
+    width:1200px;
+    writing-mode: horizontal-tb;
+    text-orientation: upright;
+    display: inline-block;
+    transform: rotate(0deg);
+    transform-origin: left;
+    margin-left:0px;
+    background: #ffffff00;
+}
+
+.hide-toggle:checked + .site-description {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.site-description2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-left: 850px;
+    margin-right: 75px;
+    padding: 10px 0;
+    background: #ffffff00;
+    color: #000000;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    text-align: left;;
+    /*text-decoration: underline;
+    text-decoration-color: rgb(0, 0, 0);
+    text-decoration-thickness: 0px;
+    text-underline-offset: 0.2em;
+    */
+    z-index: 10000;
+}
+
+.site-description3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75.5%;
+    margin-left: 105px;
+    margin-right: 50px;
+    padding: 10px 0;
+    padding-bottom: 0.001px;
+    line-height: var(--leading);
+    background: #ffffff00;
+    color: #000000;
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+
+    padding-bottom: 0px;            /* smaller space to line */
+
+  border-bottom: 20px solid rgb(0, 0, 0); 
+  box-sizing: border-box;
+
+    z-index: 10000;
+}
+
+summary {
+  cursor: pointer;
+}
+
+summary::marker {
+    color: rgba(0, 0, 0, 0);
+}
+
+
+/* ======================= */
+/* VERTICAL TEXT BOX */
+/* ======================= */
+.vertical-text-box {
+  width: 12px;
+  position: fixed;
+  top: 70%;
+  right: 0;
+  height: 900px;
+  transform: translateY(-25%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: justify;
+  padding: 10px 15px;
+  background: #ffffff00;
+  color: #111;
+  font-family: "American Typewriter", serif;
+  font-size: 1rem;
+  line-height: 1.3rem;
+
+  text-decoration: underline;
+  text-decoration-color: rgb(0, 0, 0);
+  text-decoration-thickness: 20px;
+  text-underline-offset: 0.08em;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.vertical-tab {
+  display: inline-block;
+  width: 50px;
+
+
+  z-index: 1001;
+}
+
+/* ======================= */
+/* HORIZONTAL LINE */
+/* ======================= */
+.horizontal-line {
+    width: 100%;
+    height: 20px;
+    background: rgb(0, 0, 0);
+    margin: 5px 0;
+}
+
+/* ======================= */
+/* RESPONSIVE MEDIA QUERIES */
+/* ======================= */
+@media (max-width: 1000px) {
+    .story {
+        column-count: 2;
+        font-size: 1.6rem;
+    }
+
+    .text-column {
+        column-count: 2;
+        font-size: 1.6rem;
+    }
+
+    .story.two-column {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 700px) {
+    .story {
+        column-count: 1;
+        font-size: 1.4rem;
+    }
+
+    .story h2 {
+        font-size: 2.4rem;
+    }
+
+    .text-column {
+        column-count: 1;
+        font-size: 1.4rem;
+    }
+
+    .text-column h2 {
+        font-size: 2.4rem;
+    }
+
+    .story.two-column {
+        column-count: 2;
+        font-size: 1.4rem;
+    }
+
+    .story.two-column h2 {
+        font-size: 2.4rem;
+    }
+}
+
+/* ======================= */
+/* VERTICAL GUIDELINES */
+/* ======================= */
+
+/* 1) Right border of STORY column */
+.story::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;        /* distance from the column */
+    width: 20px;
+    height: 99%;
+    background: rgb(0, 0, 0);
+    pointer-events: none;
+}
+
+/* ensure .story can contain absolutely positioned pseudo-elements */
+.story {
+    position: relative;
+}
+
+/* 2) Right border of BODY box (full page width) */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 850px;            /* at the right edge of the page */
+    width: 20px;
+    height: 155vh;
+    background: rgb(0, 0, 0);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 3) Right border of TEXT column */
+.text-column::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 20px;
+    height: 200px;
+    background: rgb(0, 0, 0);
+    pointer-events: none;
+}
+
+
+.strikethrough {
+    text-decoration: line-through;
+    text-decoration-thickness: 21px;
+    text-decoration-color: #000000;
+}
+
+.strikethroughcentered {
+    text-decoration: line-through;
+    text-decoration-thickness: 21px;
+    text-decoration-color: #000000;
+
+    text-align: center;
+}
+
+.centered {
+    text-align: center;
+    display: block;
+}
+
+.vertical-line-divider {
+    position:absolute;
+    width: 20px;
+    height: 860px;
+    background: rgb(0, 0, 0);
+    margin-left: 1005px;
+    margin-top: -20px;
+    margin-bottom: 0;
+}
+
+.vertical-line-divider2 {
+    position:absolute;
+    width: 20px;
+    height: 1200px;
+    background: rgb(0, 0, 0);
+    margin-left: 1005px;
+    margin-top: -20px;
+    margin-bottom: 0;
+}
+
+.end {
+    position: absolute;
+    left: 50px;
+    top: 8634px;
+    width: 100px;
+    font-family: "Clarendon", serif;
+    font-size: calc(var(--leading) * 4.5);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: right;
+    color:#ff7c7c;
+    }
+
+
+a.end {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.end {
+    color: #111;
+    z-index: 1000;
+}
+
+a.end-link {
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.story-number {
+    position: absolute;
+    left: 540px;
+    top: 2125px;
+    width: 50px;
+    font-family: "Clarendon", serif;
+    font-size: calc(var(--leading) * 4.5);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: left;
+    color:#111;
+    z-index: 1000;
+}   
+
+.story-number2 {
+    position: absolute;
+    left: 1040px;
+    top: 4770px;
+    width: 50px;
+    font-family: "Clarendon", serif;
+    font-size: calc(var(--leading) * 4.5);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: left;
+    color:#111;
+    background-color: transparent;
+    z-index: 1000;
+}   
+
+.number-index {
+    position: absolute;
+    left: 450px;
+    top: 7070px;
+    width: 700px;
+    font-family: "Clarendon", serif;
+    font-size: calc(var(--leading) * 4.5);
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: right;
+    color:#000000;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.description {
+    font-family: "American Typewriter", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: -1rem;
+    text-align: left;
+    color:#111;
+    background-color: transparent;
+    margin-top: 10px;
+
+    text-decoration: underline;
+  text-decoration-color: rgb(0, 0, 0);
+  text-decoration-thickness: 20px;
+  text-underline-offset: 0.3em;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+}
+/* Number index scroll targets */
+.num-target {
+    scroll-margin-top: 50vh;
+}
+
+/* Style links on dropcaps and story numbers */
+.dropcap a,
+.story-number a,
+.story-number2 a {
+    text-decoration: none;
+    color:#000000;
+}
+
+.dropcap a:hover,
+.story-number a:hover,
+.story-number2 a:hover {
+    opacity: 1;
+    color:#000000
+}
